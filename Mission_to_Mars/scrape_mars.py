@@ -17,8 +17,6 @@ def scrape():
 
     
     browser = init_browser()
-
-    # Create empty dictionary to hold scraped data
     scraped_data = {}
 
     # Mars News url

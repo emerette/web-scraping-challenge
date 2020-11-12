@@ -3,7 +3,7 @@
 
 from flask import Flask, render_template, redirect
 from flask_pymongo import PyMongo
-import scrape_to_mars
+import scrape_mars
 
 # Flask App
 app = Flask(__name__)
@@ -23,6 +23,10 @@ def scrape():
     scraped_data.update({}, scraped_data_list, upsert=True)
     return redirect("/", code=302)
 
+@app.route("/img")
+def img():
+        img_data = scrape_mars.featured_image()
+        return render_template("index.html", img_data = hemisphere)
 
 if __name__ == "__main__":
     app.run(debug=True)
